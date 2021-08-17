@@ -1,6 +1,8 @@
 package com.example.retrofitreturnhomework.data.network
 
 import com.example.retrofitreturnhomework.data.network.apiservice.CharacterApiService
+import com.example.retrofitreturnhomework.data.network.apiservice.EpisodeApiService
+import com.example.retrofitreturnhomework.data.network.apiservice.LocationApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -26,5 +28,11 @@ class RetrofitClient {
     fun providerApiService (): CharacterApiService {
          return  retrofitClient.create(CharacterApiService::class.java)
     }
+     fun providerLocationApiService () : LocationApiService {
+         return retrofitClient.create(LocationApiService::class.java)
+     }
+     fun providerEpisodeApiService () : EpisodeApiService {
+         return retrofitClient.create(EpisodeApiService::class.java)
+     }
 }
 

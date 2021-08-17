@@ -4,11 +4,12 @@ import com.example.retrofitreturnhomework.model.CharacterModel
 import com.example.retrofitreturnhomework.model.RickyAndMortyResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface CharacterApiService  {
 
     @GET ("api/character")
-    fun fetchCharacters () : Call<RickyAndMortyResponse<CharacterModel>>
+   suspend fun fetchCharacters (@Query ("page") page : Int) : RickyAndMortyResponse<CharacterModel>
 
 
 }

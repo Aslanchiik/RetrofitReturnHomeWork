@@ -20,15 +20,16 @@
                 android:id="@+id/item_character_image"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_width="100dp"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp"
+                android:contentDescription="@string/todo" />
 
             <TextView
                 android:id="@+id/item_character_text"
-                android:text="Erkinai"
+                android:text="@string/erkinai"
                 android:textSize="25sp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:textColor="@color/white"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="25dp"

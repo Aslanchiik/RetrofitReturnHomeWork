@@ -10,4 +10,14 @@
         android:name="com.example.retrofitreturnhomework.ui.fragments.character.Character"
         android:label="fragment_character"
         tools:layout="@layout/fragment_character" />
+    <fragment
+        android:id="@+id/episodeFrag"
+        android:name="com.example.retrofitreturnhomework.ui.fragments.episode.EpisodeFrag"
+        android:label="fragment_episode"
+        tools:layout="@layout/fragment_episode" />
+    <fragment
+        android:id="@+id/locationFrag"
+        android:name="com.example.retrofitreturnhomework.ui.fragments.location.LocationFrag"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

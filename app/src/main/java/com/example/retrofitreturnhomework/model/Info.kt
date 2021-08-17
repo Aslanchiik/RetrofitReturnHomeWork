@@ -13,5 +13,5 @@ data class Info (
     val next: String,
 
     @SerializedName("prev")
-    val prev: Any
+    val prev: String
 )
