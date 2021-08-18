@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.retrofitreturnhomework.base.BaseDiffUtil
 import com.example.retrofitreturnhomework.databinding.ItemLocationBinding
 import com.example.retrofitreturnhomework.model.LocationModel
 
-class LocationAdapter : PagingDataAdapter<LocationModel, LocationAdapter.ViewHolder>(diffCallback) {
+class LocationAdapter : PagingDataAdapter<LocationModel, LocationAdapter.ViewHolder>(BaseDiffUtil<LocationModel> ()) {
 
     inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
 
@@ -30,25 +30,5 @@ class LocationAdapter : PagingDataAdapter<LocationModel, LocationAdapter.ViewHol
         val binding  =
             ItemLocationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding.root)
-    }
-
-    companion object {
-
-        val diffCallback = object : DiffUtil.ItemCallback<LocationModel>() {
-            override fun areItemsTheSame(
-                oldItem: LocationModel,
-                newItem: LocationModel,
-            ): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(
-                oldItem: LocationModel,
-                newItem: LocationModel,
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
     }
 }

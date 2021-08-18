@@ -1,7 +1,9 @@
 package com.example.retrofitreturnhomework.ui.fragments.character
 
-import androidx.fragment.app.viewModels
+import android.util.Log
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.retrofitreturnhomework.R
@@ -16,8 +18,8 @@ import kotlinx.coroutines.launch
 class Character :  BaseFragment<FragmentCharacterBinding, CharacterViewModel>(R.layout.fragment_character) {
 
     override val binding by viewBinding (FragmentCharacterBinding::bind)
-    override val viewModel: CharacterViewModel by viewModels()
-    private var characterAdapter: CharacterAdapter = CharacterAdapter()
+    override val viewModel: CharacterViewModel by activityViewModels()
+    private var characterAdapter: CharacterAdapter = CharacterAdapter(this::onItemClick,this::onLongClick )
 
     override fun setupViews() {
         binding.recView.apply {
@@ -33,5 +35,15 @@ class Character :  BaseFragment<FragmentCharacterBinding, CharacterViewModel>(R.
               }
         }
     }
+    private fun onItemClick(id: Int) {
+        findNavController().navigate(
+             CharacterDirections.actionCharacterToGetItem(id)
+        )
+    }
+     private fun onLongClick (image : String) {
+         findNavController().navigate(
+             CharacterDirections.actionCharacterToDialogFrag(image)
+         )
+     }
 
 }
